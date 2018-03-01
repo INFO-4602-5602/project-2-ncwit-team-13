@@ -1,4 +1,4 @@
-# Project1
+# Project 1
 <h2>Project 1:</h2>
 Due 3.16.2018 by 11:59pm through GitHub Classroom 
 Projects may be submitted up to 3 days late, with a 10% penalty per day.
@@ -58,8 +58,9 @@ All submissions must be made through GitHub with a timestamp by 11:59pm on 3.16.
 <li>Your README</li>
 <li>Your code and/or project</li>
 </ul>
+Note that each group only needs to submit one file. 
 
-Each member of the team should also send me a project post-mortem through email documenting the following:
+Each member of the team should also send me a project post-mortem through email with the subject line "INFO 4602/5602: Project 2" documenting the following:
 * What you worked on in the project
 * What your teammates worked on in the project
 * How you would rate your performance and why
