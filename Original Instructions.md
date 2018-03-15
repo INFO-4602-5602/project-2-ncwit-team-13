@@ -11,7 +11,7 @@
 To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub.
 
 <h2>Visualization Descriptions</h2>
-<h3>Visualization 0 - Retention/Institution, Male/F/Tot. (Not Pictured)</h3>
+<h3>Visualization 1 - Retention/Institution, Male/F/Tot. (Not Pictured)</h3>
 <p>This visualization allows the user to view retention rates for men, women, and all students among extension service schools with CS majors. The user can select which set of data to view via the drop-down menu and can view all the institutions as well as individual schools.</p>
 
 <p>Design Process</p>
@@ -24,7 +24,7 @@ We further outlined our idea by working through the data cleaning steps to filte
 Overall, after filtering, it was obvious that the data was still incomplete. Our formula for the totals was also uncertain. Regardless, we went ahead and created an interactive chart that allows the user to view total enrollment retention, as well and individual male and female retention in order to get a better idea of Bokeh and using it to display charts. When viewing each set, individual schools can be selected and viewed individually.
 </p>
 
-<h3>Visualization 1 - Attrition/Institution, Male/F/Tot.</h3>
+<h3>Visualization 2 - Attrition/Institution, Male/F/Tot.</h3>
 <p>This visualization is a bubble chart showing attrition for each major from institutions that have enough data to calculate attrition. Each circle represents a major, with the size of the circles encoding the total number of STUDENTS enrolled in that major. The color scale displays whether the major has higher attrition for males or females, with more x showing higher levels of female attrition and x showing higher levels of male attrition. The user can mouse over to display the male, female, and total attrition for each major. When the circle is clicked the display zooms in on the data for that major, displaying each the specific information for each institution.</p>
 
 <p>Design Process</p>
@@ -35,7 +35,7 @@ After exporting the csv with the cleaned data, we used Tableau to prototype the 
 
 <p>How to run</p>
 
-<h3>Visualization 2 - Male/Female GPA Over Time</h3>
+<h3>Visualization 3 - Male/Female GPA Over Time</h3>
 <p>This visualization is a simple line chart with GPA plotted on the x-axis and year on the y-axis. GPA is calculated per major. The user can scroll through the years using a scroll tool for the x-axis to show individual years.</p>
 
 <p>Design Process</p>
@@ -46,47 +46,13 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 
 <p>How to run</p>
 
-<h3>Visualization 3 - Violin Plot</h3>
-#Description
-<p></p>
-
-<p>Design Process</p>
-
-
-
-</p>
-
-<p>How to run</p>
-
-<h3>Visualization 4 - Interactive line graph with sound</h3>
-#Description
-<p></p>
-
-<p>Design Process</p>
-
-
-</p>
-
-<p>How to run</p>
-
-
-
-<h2>Team Roles: </h2>
+<h2>Overview: </h2>
 <p>Bret – Documented project. Helped organize meeting, work on analyzing data, and designing visualizations.</p>
 <p>Jen – Worked on analyzing data and designing visualizations. Designed color palette and built physical visualization.</p>
 <p>Jordan – Worked on analyzing data and designing visualizations. Built violin plot visualization.</p>
 <p>Justin – Worked on analyzing data and designing visualization. Assisted cleaning data and working with Bokeh and other libraries to assist building visualizations.</p>
 <p>Will -Worked on analyzing data and designing visualizations. Built attrition and GPA visualizations.</p>
 
-
-
-
-
-
-
-
-
-#To be deleted
 <h2>Overview: </h2>
 You've been provided with a dataset from the National Center for Women in Technology (NCWIT) exploring enrollments in Computing & Engineering disciplines over time. The goal of the project is to create visualizations that allow the stakeholders to effectively explore this data to answer different questions related to the diversity and inclusivity initiatives of NCWIT.
 
