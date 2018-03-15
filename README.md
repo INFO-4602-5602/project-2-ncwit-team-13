@@ -5,21 +5,23 @@
 <p>Jordan Wirfs-Brock</p>
 <p>Justin Chin</p>
 <p>Will Temple</p>
-    
+
+<p>Testing to see if Github will let me change this file.</p>
+
 
 <h2>Overview: </h2>
-To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub. 
+To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub.
 
-<h2>Visualization Descriptions</h2> 
+<h2>Visualization Descriptions</h2>
 <h3>Visualization 1 - Retention/Institution, Male/F/Tot. (Not Pictured)</h3>
 <p>This visualization allows the user to view retention rates for men, women, and all students among extension service schools with CS majors. The user can select which set of data to view via the drop-down menu and can view all the institutions as well as individual schools.</p>
 
 <p>Design Process</p>
 We began by looking over the data and designing questions to answer with the data, as well as questions about the data. After meeting with Lecia from NCWIT, we took her guidance and attempted to generate more questions that we could answer through visualization.
 
-Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. We also only looked at data beginning in school year 2007 to 2008 since that is when the extension services began, and again, the data seemed more complete. Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. We used Tableau to do calculate male and female enrollment and plotted the data in a bar graph. Again, it was clear the data was a bit funky prior to 2007. 
+Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. We also only looked at data beginning in school year 2007 to 2008 since that is when the extension services began, and again, the data seemed more complete. Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. We used Tableau to do calculate male and female enrollment and plotted the data in a bar graph. Again, it was clear the data was a bit funky prior to 2007.
 
-We further outlined our idea by working through the data cleaning steps to filter the data in Python to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. From there we had to calculate retention, which we defined as Year2/Year1=Retention. Iterating through the data presented a challenge as we did not know the Panda library functions to go through each institution by year, calculate retention rate each year starting in year 2 and then moving on for further years until the data for that institution ended. We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution. 
+We further outlined our idea by working through the data cleaning steps to filter the data in Python to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. From there we had to calculate retention, which we defined as Year2/Year1=Retention. Iterating through the data presented a challenge as we did not know the Panda library functions to go through each institution by year, calculate retention rate each year starting in year 2 and then moving on for further years until the data for that institution ended. We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution.
 
 Overall, after filtering, it was obvious that the data was still incomplete. Our formula for the totals was also uncertain. Regardless, we went ahead and created an interactive chart that allows the user to view total enrollment retention, as well and individual male and female retention in order to get a better idea of Bokeh and using it to display charts. When viewing each set, individual schools can be selected and viewed individually.
 </p>
@@ -39,9 +41,9 @@ After exporting the csv with the cleaned data, we used Tableau to prototype the 
 <p>This visualization is a simple line chart with GPA plotted on the x-axis and year on the y-axis. GPA is calculated per major. The user can scroll through the years using a scroll tool for the x-axis to show individual years.</p>
 
 <p>Design Process</p>
-After working on the attrition visualization, we needed to complete one additional visualization to have 4 visualizations as Jen and Jordan were working on 2 as well. We decided to use GPA and time to have a simpler calculation and look at a potentially less specific data since the attrition calculation eliminated around 1500 rows of data. 
+After working on the attrition visualization, we needed to complete one additional visualization to have 4 visualizations as Jen and Jordan were working on 2 as well. We decided to use GPA and time to have a simpler calculation and look at a potentially less specific data since the attrition calculation eliminated around 1500 rows of data.
 
-We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3. 
+We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3.
 </p>
 
 <p>How to run</p>
@@ -57,7 +59,7 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 You've been provided with a dataset from the National Center for Women in Technology (NCWIT) exploring enrollments in Computing & Engineering disciplines over time. The goal of the project is to create visualizations that allow the stakeholders to effectively explore this data to answer different questions related to the diversity and inclusivity initiatives of NCWIT.
 
 
-<h2>Minimum Requirements:</h2> 
+<h2>Minimum Requirements:</h2>
 Your project must:
 <ul>
 <li> Include a README.md file that outlines:
@@ -76,7 +78,7 @@ Your project must:
 <li>Be able to work with any dataset of this format (e.g., the numbers are interchangable but the columns and document titles are fixed).</li>
 </ul>
 
-<h2>Above and Beyond:</h2> 
+<h2>Above and Beyond:</h2>
 The above requirements are the minimum for a passing grade on this project. Some ideas to improve your project include:<ul>
 <li>Dashboarding: Show all three visualizations as part of the same screen.</li>
 <li>Added Visualizations: Provide more than three visualizations</li>
@@ -86,7 +88,7 @@ The above requirements are the minimum for a passing grade on this project. Some
 <li>Overview+Detail: Provide a pair of views that allow viewers to retain context as they navigate your data.</li>
 <li>Style: Keep the style consistent across all your views, with an eye towards intelligently applying visual design.</li></ul>
 
-<h2>Platforms:</h2> 
+<h2>Platforms:</h2>
 You can use any development platform you'd like so long as it is not proprietary (exception: MatLab as we have a University License). Your project readme should include step-by-step instructions on how to run your projects and it should run without me having to modify the code. You are welcome to use different platforms for each visualization.
 
 Some platforms to look at include:
@@ -101,7 +103,7 @@ Some platforms to look at include:
 <li>Creatively engineered tangible/audio artifacts</li>
 </ul>
 
-If you would like to use a platform that will push you in creative ways but may not support all of the requirements of the project, please come talk to me. 
+If you would like to use a platform that will push you in creative ways but may not support all of the requirements of the project, please come talk to me.
 
 <h2>Submissions:</h2>
 All submissions must be made through GitHub with a timestamp by 11:59pm on 3.16. Your submission files should include:
@@ -109,7 +111,7 @@ All submissions must be made through GitHub with a timestamp by 11:59pm on 3.16.
 <li>Your README</li>
 <li>Your code and/or project</li>
 </ul>
-Note that each group only needs to submit one file. 
+Note that each group only needs to submit one file.
 
 Each member of the team should also send me a project post-mortem through email with the subject line "INFO 4602/5602: Project 2" documenting the following:
 * What you worked on in the project
