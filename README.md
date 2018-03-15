@@ -1,12 +1,28 @@
-# Project 1
-<h2>Project 1:</h2>
-Due 3.16.2018 by 11:59pm through GitHub Classroom 
-Projects may be submitted up to 3 days late, with a 10% penalty per day.
+# Project 2
+<h2>Project 2: Group 13</h2>
+Bret McSpadden
+Jen Liu
+Jordan Wirfs-Brock
+Justin Chin
+Will Temple
 
 <h2>Overview: </h2>
-You've been provided with a dataset from the National Center for Women in Technology (NCWIT) exploring enrollments in Computing & Engineering disciplines over time. The goal of the project is to create visualizations that allow the stakeholders to effectively explore this data to answer different questions related to the diversity and inclusivity initiatives of NCWIT. 
+To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub. 
 
-<h2>Minimum Requirements:</h2> 
+<h2>Visualization Descriptions</h2> 
+<h3>Visualization 1 - Retention/Institution, Male/F/Tot. (Not Pictured)</h3>
+<p>This visualization allows the user to view retention rates for men, women, and all students among extension service schools with CS majors. The user can select which set of data to view via the drop-down menu and can view all the institutions as well as individual schools.
+ 
+Design Process
+We began by looking over the data and designing questions to answer with the data, as well as questions about the data. After meeting with Lecia from NCWIT, we took her guidance and attempted to generate more questions that we could answer through visualization.
+
+Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. We also only looked at data beginning in school year 2007 to 2008 since that is when the extension services began, and again, the data seemed more complete. Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. We used Tableau to do calculate male and female enrollment and plotted the data in a bar graph. Again, it was clear the data was a bit funky prior to 2007. 
+
+We further outlined our idea by working through the data cleaning steps to filter the data in Python to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. From there we had to calculate retention, which we defined as Year2/Year1=Retention. Iterating through the data presented a challenge as we did not know the Panda library functions to go through each institution by year, calculate retention rate each year starting in year 2 and then moving on for further years until the data for that institution ended. We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution. 
+
+Overall, after filtering, it was obvious that the data was still incomplete. Our formula for the totals was also uncertain. Regardless, we went ahead and created an interactive chart that allows the user to view total enrollment retention, as well and individual male and female retention in order to get a better idea of Bokeh and using it to display charts. When viewing each set, individual schools can be selected and viewed individually.</p>
+
+
 Your project must:
 <ul>
 <li> Include a README.md file that outlines:
