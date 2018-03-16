@@ -84,19 +84,19 @@ Another visualization decision we had to make was whether to aggregate the data 
 
 Our next design choice was what visualization to make. We knew that we wanted to emphasize the distribution of female enrollment, so we looked at box plots, scatter plots, violin plots and swarmplots. Using [Andrew Sielen’s suite of distribution plots for d3](http://bl.ocks.org/asielen/92929960988a8935d907e39e60ea8417) as a guide, we tried out some of the different possibilities. We also looked at the plots available in [Seaborn](https://seaborn.pydata.org/index.html), a visualization package for Python that handles distribution plots well. We ended up choosing a violin plot with a swarmplot overlay. This allows the user to get an impression/gist of the overall distribution, while also being able to see individual values. We felt this met the overview/detail requirement nicely. We adjusted the violin plot settings so that the total area of each violin is proportional to the number of data points in each category (note: it’s NOT proportional to the number of total students in each category, which also would have been interesting). We chose to “clip” the violin plots at 0 percent and 100 percent, because it was confusing to see them extend into, say, negative numbers, when we know there are no negative values for percent females.
 
-[TODO - INSERT IMAGE - preliminary violin plots]
+![Violin plots without dots](https://i.imgur.com/H1rNYEK.png)
 
 The next choice was which data to encode in which channels. We knew that we would keep percent females enrolled on the y-axis, but weren’t sure whether to put major or when students must decide on a major on the x-axis. To decide, we made prototype plots of each and circulated them among the team to get feedback.
 
 Here’s an example of a design we didn’t use, which encodes when students must declare a major by position:
 
-[TODO- INSERT IMAGE - encoded by when enroll]
+![Swarm plots arranged by wheb students declare a major](https://i.imgur.com/Otqvzmh.png)
 
 Next, we had to decide what interaction to include. We decided that the import elements a user might want to explore in this visualization would be how the patterns change based on when a student enrolls. So we made plots that highlight each category using color pop-out (muting the other categories) and gave the user the ability to toggle between them.
 
 Another major design decision we had to make was how to handle the “overlapping” points. If you look at the edges of the CS and engineering clusters, you’ll see that they appear to be bounded, and there are a bunch of points piled up on top of eachother at the edges. This is because there are so many data point in those groups, and the distribution is so highly clustered  around the 15% to 20% female zone, that the point clustering algorithm in Seaborn breaks. First, we considered reducing the size of the points. While this worked in terms of being able to display all points without overlap (see below), it made it much harder to see individual points in the color “pop-out” views.
 
-[TODO- INSERT SMALL POINTS IMAGE]
+![Swarm plots with tiny dots](https://i.imgur.com/Otqvzmh.png)
 
 We also considered making the frame wider, or reducing the number of categories shown. These were also non-ideal options. In the end, we decided to show a coordinated view that displays the full distribution for the large categories, CS and engineering, on a tooltip when you mouse over the title. This of course has its flaws, too -- we’re really curious to hear what you think about this design choice.
 
