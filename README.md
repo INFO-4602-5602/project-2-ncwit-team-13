@@ -110,12 +110,16 @@ We also considered making the frame wider, or reducing the number of categories 
 
 <p>How to run</p>
 
-<h3>Visualization 4 - Interactive line graph with sound</h3>
+<h3>Visualization 4 - DataFry: Interactive line graph with sound</h3>
 #Description
-<p></p>
+<p>DataFry is a visualization that uses interactivity to sonify data. For this visualization, we are using line graphs that show the changes in percentage of female enrollment in particular majors over a set of years, in our case we compared the enrollment percentages for computer science and engineering. The line graph is made using conductive ink, turning the graph into a conductive trace. The circuit for the visualization is completed when the person places their fingers along this trace. As they trace their finger along the path, it changes the resistance value which alters the output of the sound. For example, when the finger is near the beginning of the line graph on the left, the resistance is higher, which yields a lower pitch in our circuit. As the finger moves towards the right, the resistance decreases, producing a higher pitch.</p>
 
 <p>Design Process</p>
+We built the circuit based off of Jay Silver's Drawdio circuit. The Drawdio circuit is centered around a 555 timer that changes the frequency depending on the resistance provided by the human input. The original Drawdio circuit is attached to a pencil and uses graphite to complete the circuit. We built the circuit onto a breadboard, and experimented with a number of materials for the trace of our line graph such as copper fabric, graphite, and conductive ink. We decided to work with conductive ink because it provided the most variability in sound than the fabric, yet was more durable to work with than the graphite.
 
+We also experimented with the use of overlays for DataFry. We used a transparency to put another line graph on top of our existing graph. For our graph, we overlaid the enrollment percentage for engineering over the graph for enrollment percentage for computer science. This allows for a visual and tangible experience of comparing the data. 
+
+In future iterations, we hope to try to incorporate a microcontroller, like an Arduino, to allow us to have a bit more control over the circuit. We are
 
 </p>
 
