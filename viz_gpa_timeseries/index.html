@@ -176,7 +176,8 @@ d3.csv('../NCWIT_DataV2_GPAData.csv', function (error, data) {
         tooltip.html(
             "<b>Record #</b>: " + d.id + "<br />" +
             "<b>Gender</b>: " + d.kind + "<br />" +
-            "<b># Students</b>: " + d.weight + "<br />"
+            "<b># Students</b>: " + d.weight + "<br />" +
+            "<b>Avg. GPA</b>: " + d.y
         ).style('left', d3.event.pageX + 12 + 'px') // add some px here to move it away from the dot
         .style('top', d3.event.pageY + 'px');
     }
@@ -191,11 +192,11 @@ d3.csv('../NCWIT_DataV2_GPAData.csv', function (error, data) {
 
     var fillScale = d3.scaleOrdinal()
         .domain(["male", "female", "combined"])
-        .range(["#699ec8", "#9263A6", "#313248"])
+        .range(["#f49070", "#9263a6", "#699ec8"])
 
     var sizeScale = d3.scaleLinear()
         .domain([minenroll, maxenroll])
-        .range([2, 10])
+        .range([4, 16])
 
     var circleGroup = svg.append('g');
 
@@ -211,6 +212,7 @@ d3.csv('../NCWIT_DataV2_GPAData.csv', function (error, data) {
             .attr('cx', function (d) { return x(d.x) })
             .attr('cy', function (d) { return y(d.y) })
             .attr('fill', function(d) { return fillScale(d.kind) })
+            .style('opacity', 0.7)
             .on('mouseover', toolTipMouseOver)
             .on('mouseout', function (d) {
                 tooltip.transition()

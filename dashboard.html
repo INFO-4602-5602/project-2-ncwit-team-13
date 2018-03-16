@@ -16,7 +16,9 @@
 </style>
 <script type="text/javascript">
 function autoSizeIFrame(frame) {
-    frame.style.height = frame.contentWindow.document.body.scrollHeight + 15 + 'px';
+    return function () {
+        frame.style.height = frame.contentWindow.document.body.scrollHeight + 15 + 'px';
+    }
 }
 </script>
 <body>
@@ -48,9 +50,11 @@ function autoSizeIFrame(frame) {
 </nav>
 <div class="container" style="margin-top: 10px;">
     <h1 id="v1">Average GPA vs. Major, by Gender</h1>
-    <iframe src="viz_gpa_timeseries/index.html" width="100%" frameborder="0" onload="autoSizeIFrame(this);"></iframe>
+    <iframe src="viz_gpa_timeseries/index.html" width="100%" frameborder="0" onload="setTimeout(autoSizeIFrame(this), 100);"></iframe>
     <h1 id="v2">Visualization 2</h1>
+    <iframe src="viz_gender_enrollment/index.html" width="100%" frameborder="0" onload="setTimeout(autoSizeIFrame(this), 100);"></iframe>
     <h1 id="v3">Visualization 3</h1>
+    <iframe src="viz_attrition/index.html" width="100%" frameborder="0" onload="setTimeout(autoSizeIFrame(this), 200);"></iframe>
     <h1 id="v4">Visualization 4</h1>
     <hr>
     <h1 id="about">About</h1>
