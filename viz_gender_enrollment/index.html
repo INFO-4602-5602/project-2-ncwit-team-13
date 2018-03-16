@@ -1,0 +1,62 @@
+<html>
+  <head>
+  <title>NCWIT: Visualizing Majors and Declaration Time</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="NCWIT.css">
+  </head>
+
+  <body>
+  <div class="tab_bar" id="my_tab_bar">
+    <h3>Choose a category to highlight (when do students declare a major?)</h3>
+    <button class="tabButton" id="all">Show all</button>
+    <button class="tabButton" id="ue">Upon Enrollment</button>
+    <button class="tabButton" id="ef">End of First Year</button>
+    <button class="tabButton" id="es">End of Second Year</button>
+    <button class="tabButton" id="other">Other</button>
+
+  </div>
+
+    <div class="content" id="content">
+
+      <div class="content" id="all-content">
+        <h2 class="graph-title">What percent of students in STEM majors are female?</h2>
+        <p class="graph-subtitle">Displayed by program type and when students must delcare: <br><em><b>All</b> declaration times highlighted</em></p>
+      <img src="images/output2.png"/>
+      <button class="tooltip">SEE FULL DISTRIBUTION</button>
+      </div>
+
+    <div class="content" id="ue-content">
+      <h2 class="graph-title">What percent of students in STEM majors are female?</h2>
+      <p class="graph-subtitle">Displayed by program type and when students must delcare: <br><em>Declare <b>upon enrollment</b> highlighted</em></p>
+      <img src="images/output3.png" />
+    </div>
+
+    <div class="content" id="ef-content">
+      <h2 class="graph-title">What percent of students in STEM majors are female?</h2>
+      <p class="graph-subtitle">Displayed by program type and when students must delcare: <br><em>Declare at <b>end of first year</b> highlighted</em></p>
+      <img src="images/output4.png" />
+    </div>
+
+    <div class="content" id="es-content">
+      <h2 class="graph-title">What percent of students in STEM majors are female?</h2>
+      <p class="graph-subtitle">Displayed by program type and when students must delcare: <br><em>Declare at <b>end of second year</b> highlighted</em></p>
+      <img src="images/output5.png" />
+    </div>
+
+    <div class="content" id="other-content">
+      <h2 class="graph-title">What percent of students in STEM majors are female?</h2>
+      <p class="graph-subtitle">Displayed by program type and when students must delcare: <br><em>Declare some other time highlighted</em></p>
+    <img src="images/output6.png" />
+    </div>
+
+<div class="notes">
+  <p>Each point represents a unique institution, program/major, and year combination.</p>
+  <p>Program names (majors) have been clustered into categories. <a href="">List of the majors in each category.</a></p>
+</div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="NCWIT.js"></script>
+  </body>
+  </html>
