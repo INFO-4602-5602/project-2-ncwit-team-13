@@ -20,7 +20,7 @@ Because Lecia was focused on retention, we decided to attempt to tackle that pro
 
 ![alt text](https://github.com/INFO-4602-5602/project-2-ncwit-team-13/blob/master/avg-gpa-major-year-college.PNG "Average Female GPA by Major (Computer Engineering, Comupter Sciecne, Mechanical Engineering) by Year, and College Standings ")
 
-Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. 
+Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total.
 
 The calculation for Male and Female enrollment for each year, was applied to create a new metric in the data.  The raw dataset was processed using Panda's library to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. We also calculated retention, which we defined as Previous Year / Current Year = Retention. For records where different enrollment data used to calculated total enrollments was not provided, we decided to use 0 as a placeholder.  We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution.
 
@@ -52,11 +52,54 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 
 <p>How to run</p>
 
-<h3>Visualization 3 - Violin Plot</h3>
-#Description
-<p></p>
+<h3>Visualization 3 - Violin/Swarm Plots</h3>
+# Description
+This visualization addresses the question: **Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?**
 
-<p>Design Process</p>
+To address this question, we created a visualization showing the distribution, across all of the school and programs, of the percent of female students. This is shown as both a violin plot and an overlying swarmplot. On the swarmplot, each dot is a unique institution/program/year combination. The distribution statistics used to render the violin plot are used on those unique rows as well.
+
+The position/space channel separates majors/programs (which we lumped into broad categories) into clusters. The color channel reflects when students must declare a major.
+
+We were curious what patterns would emerge, and were somewhat surprised to note that there doesn’t seem to be a noticeable relationship between when students must declare and what the female enrollment rate is. This may seem like a null result, but it’s still useful: Perhaps, instead of worrying about how to tweak the enrollment timeline, schools can focus on other factors that have more of an effect on outcomes for females in STEM.
+
+However, some interesting patterns are evident: In media and design, nearly all programs have students selecting their major upon enrollment. It’s more common in computer science and engineering for students to have to declare later on in their college career. You can see that in the all-female programs in computer science (represented by the line up at the top at 100% female), there are no programs where students choose a major upon enrollment. Alternatively, in the CS programs with no women (the line at 0%), choosing a major upon enrollment dominates.
+
+Jordan took the lead on this visualization, with Jen providing a supporting role by giving feedback and guidance on design decisions.
+
+# How to view
+You can view this visualization in our dashboard, [or as a standalone graphic here](https://info-4602-5602.github.io/project-2-ncwit-team-13/viz_gender_enrollment/).
+
+Use the buttons at the top to switch between which declaration-group is highlighted: upon enrollment, after the first year, after the second year, or other. (Note, there was an additional category, “university close” -- because this was so small we chose not to include it in the interface.)
+
+Mouse over the “expand distribution” lab next to “Computer Science” or “Engineering” to see a pop-out view of these majors.
+
+# Design Process
+The first phase of the design process was selecting a question to guide our inquiry. Our team brainstormed questions and topics after looking at the dataset, and narrowed it down to our favorites. This question was selected because Lecia Barker explicitly called out the fact that students have to declare majors at different times as something that schools were interested in learning about -- does this have an effect on enrollment, retention, and success in the programs?
+
+The next phase was doing some data cleaning and preliminary analysis using Python, pandas and Jupyter notebooks. [You can see the notebook with both data cleaning and visualizations here.](https://github.com/INFO-4602-5602/project-2-ncwit-team-13/blob/master/viz_gender_enrollment/data-analysis/JWB-NCWIT-analysis.ipynb) [Note that it takes a while to load because the plots take time to render.]
+
+We cleaned the data by making sure the values for the “When do students typically declare their major?” column were normalized by fixing misspelled values (i.e. “Upon Enrollent”). We also added in calculated fields for percent of females enrolled and percent of females graduated. During this process, we saw that there were many institution/year/program entries that were missing data. To deal with this, we dropped rows that had no values, and created a data frame for schools with enrollment data and a separate frame for schools with graduation data (a much smaller subset of the original dataset). Originally, our plan was to see if there was a relationship between when students have to declare a major and what percent of graduates are females, but upon looking at the data we decided that this winnowed the results too much. We chose to use percent of females enrolled in the major as the main metric to display because it is both meaningful and there is more data.
+
+Another visualization decision we had to make was whether to aggregate the data based on school, program, year, etc. We did some data crunching where we aggregated based on school and program (i.e., computer science data at a given institution would be summed across all years, and then a percent of female enrollees could be calculated from that aggregate number). This has the advantage of averaging out year-to-year noise, but the disadvantage that it doesn’t reflect changes that a program/school may have made to improve female enrollment. Also, the data availability year to year is quite variable: some schools have only a year or two of data, whereas others have ten years. A multi-year average is potentially difficult to explain to the end user. Visually, it would mean fewer points to plot on the graph. After looking at some prototype plots of these two options, ultimately, we decided to visualize the full data, non-aggregated.
+
+Our next design choice was what visualization to make. We knew that we wanted to emphasize the distribution of female enrollment, so we looked at box plots, scatter plots, violin plots and swarmplots. Using [Andrew Sielen’s suite of distribution plots for d3](http://bl.ocks.org/asielen/92929960988a8935d907e39e60ea8417) as a guide, we tried out some of the different possibilities. We also looked at the plots available in [Seaborn](https://seaborn.pydata.org/index.html), a visualization package for Python that handles distribution plots well. We ended up choosing a violin plot with a swarmplot overlay. This allows the user to get an impression/gist of the overall distribution, while also being able to see individual values. We felt this met the overview/detail requirement nicely. We adjusted the violin plot settings so that the total area of each violin is proportional to the number of data points in each category (note: it’s NOT proportional to the number of total students in each category, which also would have been interesting). We chose to “clip” the violin plots at 0 percent and 100 percent, because it was confusing to see them extend into, say, negative numbers, when we know there are no negative values for percent females.
+
+[TODO - INSERT IMAGE - preliminary violin plots]
+
+The next choice was which data to encode in which channels. We knew that we would keep percent females enrolled on the y-axis, but weren’t sure whether to put major or when students must decide on a major on the x-axis. To decide, we made prototype plots of each and circulated them among the team to get feedback.
+
+Here’s an example of a design we didn’t use, which encodes when students must declare a major by position:
+
+[TODO- INSERT IMAGE - encoded by when enroll]
+
+Next, we had to decide what interaction to include. We decided that the import elements a user might want to explore in this visualization would be how the patterns change based on when a student enrolls. So we made plots that highlight each category using color pop-out (muting the other categories) and gave the user the ability to toggle between them.
+
+Another major design decision we had to make was how to handle the “overlapping” points. If you look at the edges of the CS and engineering clusters, you’ll see that they appear to be bounded, and there are a bunch of points piled up on top of eachother at the edges. This is because there are so many data point in those groups, and the distribution is so highly clustered  around the 15% to 20% female zone, that the point clustering algorithm in Seaborn breaks. First, we considered reducing the size of the points. While this worked in terms of being able to display all points without overlap (see below), it made it much harder to see individual points in the color “pop-out” views.
+
+[TODO- INSERT SMALL POINTS IMAGE]
+
+We also considered making the frame wider, or reducing the number of categories shown. These were also non-ideal options. In the end, we decided to show a coordinated view that displays the full distribution for the large categories, CS and engineering, on a tooltip when you mouse over the title. This of course has its flaws, too -- we’re really curious to hear what you think about this design choice.
+
 
 
 
