@@ -1,5 +1,5 @@
 .tab_bar{
-    padding: 5px 10px 10px 10px;
+    padding: 3px 10px 10px 10px;
     margin-right: 140px;
     float:right;
     z-index: -1;
@@ -119,4 +119,50 @@ p {
     margin: 10px;
     border: 1px solid gray;
     background: #ffffff;
+}
+
+
+a.tooltip {outline:none; }
+a.tooltip:hover {text-decoration:none;}
+a.tooltip span {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:60px; margin-left:-160px;
+    width:600px;
+    height:300px;
+    bottom:150px;
+    left:300px;
+    background:white;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; repeat-x 0 0;
+}
+
+.callout {z-index:20;position:absolute;border:0;}
+
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:2px;
+    box-shadow: 0px 0px 8px 4px #666;
+    /*opacity: 0.8;*/
+}
+
+.dist-callout{
+  background:none;
+  color:blue;
+  font-size:10px;
+  border-style:none;
+
+}
+
+#CS-expand{
+  position:absolute;
+  bottom:145px;
+  left:140px;
+}
+
+#eng-expand{
+  position:absolute;
+  bottom:145px;
+  left:305px;
 }
