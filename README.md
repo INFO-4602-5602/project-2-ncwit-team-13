@@ -6,22 +6,23 @@
 <p>Justin Chin</p>
 <p>Will Temple</p>
 
-
 <h2>Overview: </h2>
 To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub.
 
+
 <h2>Visualization Descriptions</h2>
-<h3>Visualization 0 - Retention/Institution, Male/F/Tot. (Not Pictured)</h3>
-<p>This visualization allows the user to view retention rates for men, women, and all students among extension service schools with CS majors. The user can select which set of data to view via the drop-down menu and can view all the institutions as well as individual schools.</p>
+<h3>Preliminary/Exploratory Visualizations</h3>
+<p>The following visualizations shows the average Female GPA by Major (Computer Engineering, Comupter Sciecne, Mechanical Engineering) by year, and college standings </p>
 
 <p>Design Process</p>
 We began by looking over the data and designing questions to answer with the data, as well as questions about the data. After meeting with Lecia from NCWIT, we took her guidance and attempted to generate more questions that we could answer through visualization.
+Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. Initial graphs using the raw data built in Tableau also showed that many schools did not provide data before 2007/2008 since that was when the extension services began, and more data was provided by consultants from the program.  The graph shown is one example where the schools did not provide data for years before 2007/2008.
 
-Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. We also only looked at data beginning in school year 2007 to 2008 since that is when the extension services began, and again, the data seemed more complete. Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. We used Tableau to do calculate male and female enrollment and plotted the data in a bar graph. Again, it was clear the data was a bit funky prior to 2007.
+Finding total enrollment year to year was a challenge as there was no total for male or female enrollment, and it was not clear which numbers should be added or subtracted to find a total. We decided to calculate enrollment as Different Major + Same Major – Graduated – New Enrollment – Transfer Enrollments. We did this for Males, Females, and added for a Total. 
 
-We further outlined our idea by working through the data cleaning steps to filter the data in Python to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. From there we had to calculate retention, which we defined as Year2/Year1=Retention. Iterating through the data presented a challenge as we did not know the Panda library functions to go through each institution by year, calculate retention rate each year starting in year 2 and then moving on for further years until the data for that institution ended. We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution.
+The calculation for Male and Female enrollment for each year, was applied to create a new metric in the data.  The raw dataset was processed using Panda's library to automate our calculations: filtering out “Extension Services”, including years 2007-2008 to 2015-20016, and calculating Male, Female, and Total enrollment. We also calculated retention, which we defined as Previous Year / Current Year = Retention. For records where different enrollment data used to calculated total enrollments was not provided, we decided to use 0 as a placeholder.  We had to further filter the data by “Major Program Name” to eliminate a problem having multiple records under the same year for the same institution.
 
-Overall, after filtering, it was obvious that the data was still incomplete. Our formula for the totals was also uncertain. Regardless, we went ahead and created an interactive chart that allows the user to view total enrollment retention, as well and individual male and female retention in order to get a better idea of Bokeh and using it to display charts. When viewing each set, individual schools can be selected and viewed individually.
+After our initial preprocessing of the data, it was obvious that the data was sparse, due to records missing/incomplete data provided by the schools, or not having enough year after year data.  This preprocessed data was plotted using Bokeh, allowing the user to view total enrollment retention, as well and individual male and female retention to view the difference between Male, Female and Overall Retention for the filtered institution, and years 2007-2015.  This initial attempt to calculate retention and graph the Male and Female retention brought up additional questions about the data and helped give direction to what attributes should be filtered for the other visualizations.
 </p>
 
 <h3>Visualization 1 - Attrition/Institution, Male/F/Tot.</h3>
