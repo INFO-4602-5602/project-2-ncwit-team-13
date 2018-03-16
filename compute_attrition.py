@@ -17,7 +17,7 @@ def is_bad(row):
 if __name__ == '__main__':
     vals = {}
     attritions = []
-    with open('NCWIT_DataV2_RawData.csv', 'rU') as csvfile:
+    with open('NCWIT_DataV2_NormalizedMajors.csv', 'rU') as csvfile:
         reader = csv.DictReader(csvfile)
         for line in reader:
             try:
@@ -52,14 +52,17 @@ if __name__ == '__main__':
                     'f_attrition' : f_attrition,
                     't_attrition' : t_attrition,
                     'participant' : vals[k][I_TYPE],
-                    'degrees' : vals[k][D_TYPE]
+                    'degrees' : vals[k][D_TYPE],
+                    'f_en' : f_en,
+                    'm_en' : m_en,
+                    'c_en' : m_en + f_en,
                 })
             except ZeroDivisionError:
                 pass
         else:
             pass
     
-    fieldnames = ['year', 'major', 'institution', 'm_attrition', 'f_attrition', 't_attrition', 'participant', 'degrees']
+    fieldnames = ['year', 'major', 'institution', 'm_attrition', 'f_attrition', 't_attrition', 'participant', 'degrees', 'f_en', 'm_en', 'c_en']
 
     clean = list(filter(lambda row: not is_bad(row), attritions))
     with open('NCWIT_cleaned_attrition.csv', 'w') as csvfile:
