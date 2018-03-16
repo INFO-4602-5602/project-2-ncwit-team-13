@@ -54,7 +54,7 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 
 <h3>Visualization 3 - Violin/Swarm Plots</h3>
 # Description
-This visualization addresses the question: **Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?**
+This visualization addresses the question: *Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?*
 
 To address this question, we created a visualization showing the distribution, across all of the school and programs, of the percent of female students. This is shown as both a violin plot and an overlying swarmplot. On the swarmplot, each dot is a unique institution/program/year combination. The distribution statistics used to render the violin plot are used on those unique rows as well.
 
@@ -96,7 +96,7 @@ Next, we had to decide what interaction to include. We decided that the import e
 
 Another major design decision we had to make was how to handle the “overlapping” points. If you look at the edges of the CS and engineering clusters, you’ll see that they appear to be bounded, and there are a bunch of points piled up on top of eachother at the edges. This is because there are so many data point in those groups, and the distribution is so highly clustered  around the 15% to 20% female zone, that the point clustering algorithm in Seaborn breaks. First, we considered reducing the size of the points. While this worked in terms of being able to display all points without overlap (see below), it made it much harder to see individual points in the color “pop-out” views.
 
-![Swarm plots with tiny dots](https://i.imgur.com/Otqvzmh.png)
+![Swarm plots with tiny dots](https://i.imgur.com/YmzU5DG.png)
 
 We also considered making the frame wider, or reducing the number of categories shown. These were also non-ideal options. In the end, we decided to show a coordinated view that displays the full distribution for the large categories, CS and engineering, on a tooltip when you mouse over the title. This of course has its flaws, too -- we’re really curious to hear what you think about this design choice.
 
