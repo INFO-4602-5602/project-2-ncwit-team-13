@@ -1,264 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<link   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"
-        integrity="sha256-ssw743RfM8cbNhwou26tmmPhiNhq3buUbRG/RevtfG4="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js" integrity="sha256-ssw743RfM8cbNhwou26tmmPhiNhq3buUbRG/RevtfG4="
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"
-        integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js" integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
         crossorigin="anonymous"></script>
-<link   rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css"
-        integrity="sha256-WfuSLYdzGvlsFU6ImYYSE277WsjfyU30QeGuNIjeJEI="
-        crossorigin="anonymous" />
-<style type="text/css">
-body {
-    width: 100%;
-}
-div#main {
-    margin-top: 10px;
-}
-.viz-box {
-    margin: 0 auto;
-    width: 900px;
-}
-#ex1Slider {
-    margin-left: 2.5%;
-    width: 95%;
-}
-#ex1Slider .slider-selection {
-	background: #BABABA;
-}
-p {
-    font-family: 'Helvetica', sans-serif;
-}
-div .tooltip {
-    background-color: #9ec665;
-    position: absolute;
-    text-align: center;
-    padding: 2px;
-    pointer-events: none;
-    border: 0px;
-    border-radius: 3px;
-    font-size: 10px;
-}
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css"
+        integrity="sha256-WfuSLYdzGvlsFU6ImYYSE277WsjfyU30QeGuNIjeJEI=" crossorigin="anonymous" />
+    <style type="text/css">
+        body {
+            width: 100%;
+        }
+
+        div#main {
+            margin-top: 10px;
+        }
+
+        .viz-box {
+            margin: 0 auto;
+            width: 900px;
+        }
+
+        #ex1Slider {
+            margin-left: 2.5%;
+            width: 95%;
+        }
+
+        #ex1Slider .slider-selection {
+            background: #BABABA;
+        }
+
+        p {
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        div .tooltip {
+            background-color: lightgray;
+            position: absolute;
+            text-align: center;
+            padding: 2px;
+            pointer-events: none;
+            border: 0px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container" id="main">
-    <div class="viz-box">
-        <p style="width: 100%;" align="center">Click and drag to scroll through time.</p>
-        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="0" data-slider-step="1" data-slider-value="0" />
-        <span><b id="minlabel">0</b></span><span style="float: right;"><b id="maxlabel">0</b></span>
-        <div class="svg-box"></div>
+    <div class="container" id="main">
+        <div class="viz-box">
+            <p style="width: 100%;" align="center">Click and drag to scroll through time.</p>
+            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="0" data-slider-step="1" data-slider-value="0"
+            />
+            <span>
+                <b id="minlabel">0</b>
+            </span>
+            <span style="float: right;">
+                <b id="maxlabel">0</b>
+            </span>
+            <div class="svg-box"></div>
+        </div>
     </div>
-</div>
-<script type="text/javascript">
-// Global variable to store state
-var _STATE = 0;
+    <script type="text/javascript">
+        // Global variable to store state
+        var _STATE = 0;
 
-d3.csv('../NCWIT_DataV2_GPAData.csv', function (error, data) {
+        d3.csv('../NCWIT_DataV2_GPAData.csv', function (error, data) {
 
-    if (error) throw error;
+            if (error) throw error;
 
-    var minyear = +data[0].Year;
-    var maxyear = minyear;
-    var maxenroll = +data[0].C_EN;
-    var minenroll = maxenroll
-    var majors = ['']
-    var points = [];
+            var minyear = +data[0].Year;
+            var maxyear = minyear;
+            var maxenroll = +data[0].C_EN;
+            var minenroll = maxenroll
+            var majors = ['']
+            var points = [];
 
-    // Data post-processing into treelike format
-    for (var i = 0; i < data.length; i++) {
-        var year = +data[i].Year;
-        delete data[i].Year;
-        if (year > maxyear) maxyear = year;
-        if (year < minyear) minyear = year;
+            // Data post-processing into treelike format
+            for (var i = 0; i < data.length; i++) {
+                var year = +data[i].Year;
+                delete data[i].Year;
+                if (year > maxyear) maxyear = year;
+                if (year < minyear) minyear = year;
 
-        let major = data[i].Major;
-        if (!majors.includes(major)) {
-            majors.push(major);
-        }
+                let major = data[i].Major;
+                if (!majors.includes(major)) {
+                    majors.push(major);
+                }
 
-        if (points[year] == null) {
-            points[year] = []
-        }
+                if (points[year] == null) {
+                    points[year] = []
+                }
 
-        let combenroll = +data[i].C_EN
-        if (combenroll > maxenroll) maxenroll = combenroll;
-        if (combenroll < minenroll) minenroll = combenroll;
+                let combenroll = +data[i].C_EN
+                if (combenroll > maxenroll) maxenroll = combenroll;
+                if (combenroll < minenroll) minenroll = combenroll;
 
-        // Add male, female and combined points for this year.
-        points[year].push({
-            id : +data[i].ID,
-            x : major,
-            y : +data[i].M_GPA,
-            kind : 'male',
-            weight: +data[i].M_EN
-        });
-        points[year].push({
-            id : +data[i].ID,
-            x : major,
-            y : +data[i].F_GPA,
-            kind : 'female',
-            weight: +data[i].F_EN
-        });
-        points[year].push({
-            id : +data[i].ID,
-            x : major,
-            y : +data[i].COMBINED_GPA,
-            kind : 'combined',
-            weight: combenroll
-        });
-    }
+                // Add male, female and combined points for this year.
+                points[year].push({
+                    id: +data[i].ID,
+                    x: major,
+                    y: +data[i].M_GPA,
+                    kind: 'male',
+                    weight: +data[i].M_EN
+                });
+                points[year].push({
+                    id: +data[i].ID,
+                    x: major,
+                    y: +data[i].F_GPA,
+                    kind: 'female',
+                    weight: +data[i].F_EN
+                });
+                points[year].push({
+                    id: +data[i].ID,
+                    x: major,
+                    y: +data[i].COMBINED_GPA,
+                    kind: 'combined',
+                    weight: combenroll
+                });
+            }
 
-    majors.sort();
-    majors.push('')
+            majors.sort();
+            majors.push('')
 
-    // Initialize state to the earliest year
-    _STATE = maxyear
-    var ex1 = $('#ex1');
-    ex1.attr("data-slider-max", maxyear);
-    ex1.attr("data-slider-min", minyear);
-    $('#minlabel').html(minyear.toString());
-    $('#maxlabel').html(maxyear.toString());
-    ex1.slider({
-        value: _STATE
-    });
-    ex1.slider("disable");
+            // Initialize state to the earliest year
+            _STATE = maxyear
+            var ex1 = $('#ex1');
+            ex1.attr("data-slider-max", maxyear);
+            ex1.attr("data-slider-min", minyear);
+            $('#minlabel').html(minyear.toString());
+            $('#maxlabel').html(maxyear.toString());
+            ex1.slider({
+                value: _STATE
+            });
+            ex1.slider("disable");
 
-    // -- BEGIN D3 --
-    let height = 700;
-    let width = 900;
-    let margins = {
-        top   : 30,
-        left  : 60,
-        right : 30,
-        bottom: 270
-    }
+            // -- BEGIN D3 --
+            let height = 700;
+            let width = 900;
+            let margins = {
+                top: 30,
+                left: 60,
+                right: 30,
+                bottom: 270
+            }
 
-    let innerWidth = width - margins.left - margins.right;
-    let innerHeight = height - margins.top - margins.bottom;
+            let innerWidth = width - margins.left - margins.right;
+            let innerHeight = height - margins.top - margins.bottom;
 
-    var svg = d3.select('div .svg-box')
-        .append('svg')
-        .attr('width', width + 'px')
-        .attr('height', height + 'px')
-        .append('g')
-        .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')');
+            var svg = d3.select('div .svg-box')
+                .append('svg')
+                .attr('width', width + 'px')
+                .attr('height', height + 'px')
+                .append('g')
+                .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')');
 
-    var xRange = [];
-    var increment = (1.0*innerWidth/(majors.length));
-    for (var i = 0; i < majors.length; i++) {
-        xRange.push(i*increment)
-    }
-    // Let's make a tooltip
-    var tooltip = d3.select('div .svg-box')
-        .append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0)
+            var xRange = [];
+            var increment = (1.0 * innerWidth / (majors.length));
+            for (var i = 0; i < majors.length; i++) {
+                xRange.push(i * increment)
+            }
+            // Let's make a tooltip
+            var tooltip = d3.select('div .svg-box')
+                .append('div')
+                .attr('class', 'tooltip')
+                .style('opacity', 0)
 
-    function toolTipMouseOver(d) {
-        tooltip.transition()
-            .duration(100)
-            .style('opacity', 0.85);
-        tooltip.html(
-            "<b>Record #</b>: " + d.id + "<br />" +
-            "<b>Gender</b>: " + d.kind + "<br />" +
-            "<b># Students</b>: " + d.weight + "<br />" +
-            "<b>Avg. GPA</b>: " + d.y
-        ).style('left', d3.event.pageX + 12 + 'px') // add some px here to move it away from the dot
-        .style('top', d3.event.pageY + 'px');
-    }
-
-    var x = d3.scaleOrdinal()
-        .domain(majors)
-        .range(xRange);
-
-    var y = d3.scaleLinear()
-        .domain([1.0, 4.0])
-        .range([innerHeight, 0])
-
-    var fillScale = d3.scaleOrdinal()
-        .domain(["male", "female", "combined"])
-        .range(["#f49070", "#9263a6", "#699ec8"])
-
-    var sizeScale = d3.scaleLinear()
-        .domain([minenroll, maxenroll])
-        .range([4, 16])
-
-    var circleGroup = svg.append('g');
-
-    function makeCircles() {
-        circleGroup.html('');
-        circleGroup.selectAll('circle')
-            .data(points[_STATE])
-            .enter()
-            .append('circle')
-            .attr('data-x', function(d) { return d.x })
-            .attr('data-kind', function(d) { return d.kind })
-            .attr('r', function(d) { return sizeScale(d.weight)})
-            .attr('cx', function (d) { return x(d.x) })
-            .attr('cy', function (d) { return y(d.y) })
-            .attr('fill', function(d) { return fillScale(d.kind) })
-            .style('opacity', 0.7)
-            .on('mouseover', toolTipMouseOver)
-            .on('mouseout', function (d) {
+            function toolTipMouseOver(d) {
                 tooltip.transition()
-                    .duration(200)
-                    .style('opacity', 0);
-            })
-    }
-    makeCircles();
+                    .duration(100)
+                    .style('opacity', 0.85);
+                tooltip.html(
+                    "<b>Record #</b>: " + d.id + "<br />" +
+                    "<b>Gender</b>: " + d.kind + "<br />" +
+                    "<b># Students</b>: " + d.weight + "<br />" +
+                    "<b>Avg. GPA</b>: " + d.y.toFixed(2)
+                ).style('left', d3.event.pageX + 12 + 'px') // add some px here to move it away from the dot
+                    .style('top', d3.event.pageY + 'px');
+            }
 
-    ex1.on('slide', function(ev) {
-        if (ev.value != _STATE) {
-            _STATE = ev.value;
-            console.log("Setting year to: " + ev.value);
+            var x = d3.scaleOrdinal()
+                .domain(majors)
+                .range(xRange);
+
+            var y = d3.scaleLinear()
+                .domain([1.0, 4.0])
+                .range([innerHeight, 0])
+
+            var fillScale = d3.scaleOrdinal()
+                .domain(["male", "female", "combined"])
+                .range(["#f49070", "#9263a6", "#699ec8"])
+
+            var sizeScale = d3.scaleLinear()
+                .domain([minenroll, maxenroll])
+                .range([4, 16])
+
+            var circleGroup = svg.append('g');
+
+            function makeCircles() {
+                circleGroup.html('');
+                circleGroup.selectAll('circle')
+                    .data(points[_STATE])
+                    .enter()
+                    .append('circle')
+                    .attr('data-x', function (d) { return d.x })
+                    .attr('data-kind', function (d) { return d.kind })
+                    .attr('r', function (d) { return sizeScale(d.weight) })
+                    .attr('cx', function (d) { return x(d.x) })
+                    .attr('cy', function (d) { return y(d.y) })
+                    .attr('fill', function (d) { return fillScale(d.kind) })
+                    .style('opacity', 0.7)
+                    .on('mouseover', toolTipMouseOver)
+                    .on('mouseout', function (d) {
+                        tooltip.transition()
+                            .duration(200)
+                            .style('opacity', 0);
+                    })
+            }
             makeCircles();
-        }
-    });
 
-    svg.append('g')
-        .attr('class', 'x-axis')
-        .attr('transform', 'translate(0,' + innerHeight + ')')
-        .call(d3.axisBottom(x))
-        .selectAll("text")	
-            .style("text-anchor", "end")
-            .attr("dx", "-.8em")
-            .attr("dy", ".15em")
-            .attr("transform", "rotate(-65)");
-        
-    svg.append('g')
-        .attr('class', 'y-axis')
-        .call(d3.axisLeft(y));
+            ex1.on('slide', function (ev) {
+                if (ev.value != _STATE) {
+                    _STATE = ev.value;
+                    console.log("Setting year to: " + ev.value);
+                    makeCircles();
+                }
+            });
 
-    svg.append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', -margins.left)
-        .attr('x', -innerHeight/2)
-        .attr('dy', '1em')
-        .attr('text-anchor', 'middle')
-        .text('Average GPA')
+            svg.append('g')
+                .attr('class', 'x-axis')
+                .attr('transform', 'translate(0,' + innerHeight + ')')
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-65)");
+
+            svg.append('g')
+                .attr('class', 'y-axis')
+                .call(d3.axisLeft(y));
+
+            svg.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('y', -margins.left)
+                .attr('x', -innerHeight / 2)
+                .attr('dy', '1em')
+                .attr('text-anchor', 'middle')
+                .text('Average GPA')
 
 
-    // -- END D3 --
+            // -- END D3 --
 
-    console.log("Done.")
-    ex1.slider("enable");
-});
+            console.log("Done.")
+            ex1.slider("enable");
+        });
 
-</script>
+    </script>
 </body>
+
 </html>

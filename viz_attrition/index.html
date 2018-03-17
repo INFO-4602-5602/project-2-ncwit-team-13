@@ -1,167 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<link   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"
-        integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js" integrity="sha256-hYXbQJK4qdJiAeDVjjQ9G0D6A0xLnDQ4eJI9dkm7Fpk="
         crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<style type="text/css">
-div .tooltip {
-    background-color: #699ec8;
-    position: absolute;
-    text-align: center;
-    padding: 2px;
-    pointer-events: none;
-    border: 0px;
-    border-radius: 3px;
-    font-size: 10px;
-}
-</style>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <style type="text/css">
+        div .tooltip {
+            background-color: lightgray;
+            position: absolute;
+            text-align: center;
+            padding: 2px;
+            pointer-events: none;
+            border: 0px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 300;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container" id="main">
-    <div class="viz-box">
+    <div class="container" id="main">
+        <!-- https://bl.ocks.org/mbostock/4063269 was very useful in the creation of this design -->
+        <p align="center">Difference in Percent of Students who Left Institution (Male - Female) by Major</p>
+        <div class="viz-box">
+        </div>
     </div>
-</div>
-<script type="text/javascript">
-d3.csv("../NCWIT_cleaned_attrition.csv", function(error, data) {
-    if (error) throw error;
+    <script type="text/javascript">
+        d3.csv("../NCWIT_cleaned_attrition.csv", function (error, data) {
+            if (error) throw error;
 
-    var correlationTable = {}
-    var aggTable = {}
-    var majors = []
-    for (var i = 0; i < data.length; i++) {
-        major = data[i].major;
-        if (correlationTable[major] == null) {
-            majors.push(major)
-            correlationTable[major] = []
-        }
-        let v = {
-            year : +data[i].year,
-            major : major,
-            institution : +data[i].institution,
-            m_attrition : +data[i].m_attrition,
-            f_attrition : +data[i].f_attrition,
-            t_attrition : +data[i].t_attrition,
-            f_enrolled : +data[i].f_en,
-            m_enrolled : +data[i].m_en,
-            t_enrolled : +data[i].c_en
-        };
-        correlationTable[major].push(v);
+            var correlationTable = {}
+            var aggTable = {}
+            var majors = []
+            for (var i = 0; i < data.length; i++) {
+                major = data[i].major;
+                if (correlationTable[major] == null) {
+                    majors.push(major)
+                    correlationTable[major] = []
+                }
+                let v = {
+                    year: +data[i].year,
+                    major: major,
+                    institution: +data[i].institution,
+                    m_attrition: +data[i].m_attrition,
+                    f_attrition: +data[i].f_attrition,
+                    t_attrition: +data[i].t_attrition,
+                    f_enrolled: +data[i].f_en,
+                    m_enrolled: +data[i].m_en,
+                    t_enrolled: +data[i].c_en
+                };
+                correlationTable[major].push(v);
 
-        if (aggTable[major] == null) {
-            console.log("Adding major " + major)
-            console.log(v)
-            aggTable[major] = {
-                major : major,
-                weight : v.t_enrolled,
-                tot_m_attrition : v.m_attrition * v.m_enrolled,
-                tot_f_attrition : v.f_attrition * v.f_enrolled,
-                tot_m_enrolled : v.m_enrolled,
-                tot_f_enrolled : v.f_enrolled,
-                count : 1
+                if (aggTable[major] == null) {
+                    console.log("Adding major " + major)
+                    console.log(v)
+                    aggTable[major] = {
+                        major: major,
+                        weight: v.t_enrolled,
+                        tot_m_attrition: v.m_attrition * v.m_enrolled,
+                        tot_f_attrition: v.f_attrition * v.f_enrolled,
+                        tot_m_enrolled: v.m_enrolled,
+                        tot_f_enrolled: v.f_enrolled,
+                        count: 1
+                    }
+                } else {
+                    aggTable[major].weight += v.t_enrolled;
+                    aggTable[major].tot_m_attrition += v.m_attrition * v.m_enrolled;
+                    aggTable[major].tot_f_attrition += v.f_attrition * v.f_enrolled;
+                    aggTable[major].tot_m_enrolled += v.m_enrolled;
+                    aggTable[major].tot_f_enrolled += v.f_enrolled;
+                    aggTable[major].count += 1;
+                }
             }
-        } else {
-            aggTable[major].weight += v.t_enrolled;
-            aggTable[major].tot_m_attrition += v.m_attrition * v.m_enrolled;
-            aggTable[major].tot_f_attrition += v.f_attrition * v.f_enrolled;
-            aggTable[major].tot_m_enrolled += v.m_enrolled;
-            aggTable[major].tot_f_enrolled += v.f_enrolled;
-            aggTable[major].count += 1;
-        }
-    }
 
-    var aggData = []
-    var max_abs = 0
+            var aggData = []
+            var max_abs = 0
 
-    for (var i = 0; i < majors.length; i++) {
-        tf = aggTable[majors[i]].tot_f_enrolled;
-        tm = aggTable[majors[i]].tot_m_enrolled;
-        tfa = aggTable[majors[i]].tot_f_attrition;
-        tma = aggTable[majors[i]].tot_m_attrition;
-        let m_f = (tma / tm) - (tfa / tf);
-        aggTable[majors[i]].m_f = m_f;
-        aggData.push(aggTable[majors[i]]);
-        var this_abs = Math.abs(m_f);
-        if (this_abs > max_abs) max_abs = this_abs;
-    }
+            for (var i = 0; i < majors.length; i++) {
+                tf = aggTable[majors[i]].tot_f_enrolled;
+                tm = aggTable[majors[i]].tot_m_enrolled;
+                tfa = aggTable[majors[i]].tot_f_attrition;
+                tma = aggTable[majors[i]].tot_m_attrition;
+                let m = tma / tm
+                let f = tfa / tf
+                let m_f = m - f;
+                aggTable[majors[i]].m_f = m_f;
+                aggTable[majors[i]].mattr = m.toFixed(2);
+                aggTable[majors[i]].fattr = f.toFixed(2);
+                aggData.push(aggTable[majors[i]]);
+                var this_abs = Math.abs(m_f);
+                if (this_abs > max_abs) max_abs = this_abs;
+            }
 
-    // D3 madness
+            // D3 madness
 
-    let width = 900, height = 600;
-    let margins = {
-        left : 30,
-        right : 30,
-        top : 30,
-        bottom : 30
-    };
-    let innerWidth = width - margins.left - margins.right;
-    let innerHeight = height - margins.top - margins.bottom;
+            let width = 900, height = 600;
+            let margins = {
+                left: 30,
+                right: 30,
+                top: 30,
+                bottom: 30
+            };
+            let innerWidth = width - margins.left - margins.right;
+            let innerHeight = height - margins.top - margins.bottom;
 
-    var svg = d3.select("div .viz-box")
-        .append('svg')
-        .attr('width', width + 'px')
-        .attr('height', height + 'px')
-        .append('g')
-        .attr('transform', 'translate(' + margins.left + ',' +  margins.top + ')');
+            var svg = d3.select("div .viz-box")
+                .append('svg')
+                .attr('width', width + 'px')
+                .attr('height', height + 'px')
+                .append('g')
+                .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')');
 
-    var colorScale = d3.scaleLinear()
-        .domain([-max_abs, max_abs])
-        .range([1,0])
+            var defs = svg.append('defs');
 
-    var pack = d3.pack()
-        .size([innerWidth - 4, innerHeight - 4])
-    
-    // I'm going to abuse the circle packing algorithm to get a tableau-like viz
-    var root = d3.hierarchy({children : aggData})
-        .sum(function (d) { return d.weight; })
+            var colorScale = d3.scaleLinear()
+                .domain([-max_abs, max_abs])
+                .range([1, 0])
 
-    // Let's make a tooltip
-    var tooltip = d3.select('div .viz-box')
-        .append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0)
+            var pack = d3.pack()
+                .size([innerWidth - 4, innerHeight - 4])
 
-    function toolTipMouseOver(d) {
-        tooltip.transition()
-            .duration(100)
-            .style('opacity', 0.85);
-        tooltip.html(
-            "<b>Major</b>: " + d.major + "<br />" +
-            "<b>Total Students</b>: " + d.weight + "<br />" +
-            "<b># Rows</b>: " + d.count + "<br />"
-        ).style('left', d3.event.pageX + 12 + 'px') // add some px here to move it away from the event
-        .style('top', d3.event.pageY + 'px');
-    }
+            // I'm going to abuse the circle packing algorithm to get a tableau-like viz
+            var root = d3.hierarchy({ children: aggData })
+                .sum(function (d) { return d.weight; })
 
-    svg.selectAll("circle")
-        .data(pack(root).leaves())
-        .enter()
-        .append("circle")
-        .attr('stroke-width', 1)
-        .attr('stroke', 'black')
-        .attr('r', function (d) { return d.r; })
-        .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; })
-        .attr('fill', function (d) { return d3.interpolatePRGn(colorScale(d.data.m_f)); })
-        .on('mouseover', function (d) { toolTipMouseOver(d.data); })
-        .on('mouseout', function (d) {
+            // Let's make a tooltip
+            var tooltip = d3.select('div .viz-box')
+                .append('div')
+                .attr('class', 'tooltip')
+                .style('opacity', 0)
+
+            function toolTipMouseOver(d) {
                 tooltip.transition()
-                    .duration(200)
-                    .style('opacity', 0);
-        });
-})
-</script>
+                    .duration(100)
+                    .style('opacity', 0.85);
+                tooltip.html(
+                    "<b>Major</b>: " + d.major + "<br />" +
+                    "<b>Total Students</b>: " + d.weight + "<br />" +
+                    "<b>M:F Attrition Rate</b>: " + d.mattr + ":" + d.fattr + "<br />" +
+                    "<b># Rows</b>: " + d.count + "<br />"
+                ).style('left', d3.event.pageX + 12 + 'px') // add some px here to move it away from the event
+                    .style('top', d3.event.pageY + 'px');
+            }
+
+            svg.selectAll("circle")
+                .data(pack(root).leaves())
+                .enter()
+                .append("circle")
+                .attr('stroke-width', 1)
+                .attr('stroke', 'black')
+                .attr('r', function (d) { return d.r; })
+                .attr('cx', function (d) { return d.x; })
+                .attr('cy', function (d) { return d.y; })
+                .attr('fill', function (d) { return d3.interpolatePRGn(colorScale(d.data.m_f)); })
+                .on('mouseover', function (d) { toolTipMouseOver(d.data); })
+                .on('mouseout', function (d) {
+                    tooltip.transition()
+                        .duration(200)
+                        .style('opacity', 0);
+                });
+
+            let cbarheight = 200;
+            let cbarwidth = 30;
+
+            var legend = svg.append('g')
+                .attr('class', 'legend')
+                .attr('transform', 'translate(' + (innerWidth - cbarwidth) + ',' + (innerHeight - cbarheight) + ')');
+
+            var grad = defs.append('linearGradient')
+                .attr('id', 'cmapGradient')
+                .attr('x1', 0)
+                .attr('y1', 0)
+                .attr('x2', 0)
+                .attr('y2', 1); // ... SVGs, am I right?
+
+            for (i = 0; i <= 100; i += 50) {
+                grad.append('stop')
+                    .attr('offset', i + '%')
+                    .attr('stop-color', d3.interpolatePRGn(1 - (i * 1.0 / 100)));
+            }
+
+            legend.append('rect')
+                .attr('width', cbarwidth)
+                .attr('height', cbarheight)
+                .attr('stroke', 'black')
+                .attr('stroke-width', 1)
+                .attr('fill', 'url(#cmapGradient)');
+
+            legend.append('text')
+                .style('text-anchor', 'end')
+                .attr('x', -4)
+                .attr('y', 12)
+                .text(max_abs.toFixed(2).toString())
+
+            legend.append('text')
+                .style('text-anchor', 'end')
+                .attr('x', -4)
+                .attr('y', cbarheight)
+                .text((-max_abs.toFixed(2)).toString())
+        })
+    </script>
 </body>
+
 </html>
