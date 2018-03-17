@@ -33,7 +33,7 @@ After our initial preprocessing of the data, it was obvious that the data was sp
 </p>
 
 <h3>Visualization 1 - Average GPA vs. Major, by Gender</h3>
-<p>This visualization is a scatterplot with major plotted on the x-axis and GPA on the y-axis. Average GPA is calculated for each instituation per major, and broken down by males and females. Individual points represent either female GPA in purple, male GPA in orange, or the cobined GPA in green for an individual institution. The size of the point represents the number of students enrolled. The user can scroll through the years using a scroll tool to display individual years and potentially see changes over time. Comparison is a bit difficult due to change blindness as well as overlap in the data.</p>
+<p>This visualization is a scatterplot with major plotted on the x-axis and GPA on the y-axis. Average GPA is calculated for each instituation per major, and broken down by males and females. Individual points represent either female GPA in purple, male GPA in orange, or the comined GPA in green for an individual institution. The size of the point represents the number of students enrolled. The user can scroll through the years using a scroll tool to display individual years and potentially see changes over time. Comparison is a bit difficult due to change blindness as well as overlap in the data.</p>
 
 #### How to view
 You can view the visualization in the dashboard. 
@@ -45,7 +45,7 @@ Mouse over each point to display a tooltip showing the record with number of stu
 #### Design Process 
 After working on the attrition visualization, we needed to complete one additional visualization as Jen and Jordan were working on 2 as well. We decided to use GPA to have a simpler calculation, and look at a less specific data set since the attrition calculation eliminated around 1500 rows of data. A similar script to the attrition calculation was used to calculate GPA.
 
-We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3. We coordinated on color for the graphic.
+We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3 and built the visualization in D3. We coordinated on color for the graphic with the team.
 
 <h3>Visualization 2 - Violin/Swarm Plots</h3>
 
@@ -111,9 +111,9 @@ This visualization is a bubble chart showing attrition for each major from insti
 Mouse over the circles to display the tooltip.
 
 #### Design Process
-This design built on Justin and Bret’s exploration and attempts to calculate and display retention rates in a line graph. Bret and Will met on Monday and discussed better ways to calculate retention and alternatives to using a line graph as the graph was muddled and spaghetti-like making it hard compare the information among schools. After discussing the challenges Justin and Bret were having, Will devised a better way calculate attrition using Total Declared Major and Left Institution data. He also cleaned the data well, making sure to only pull from institutions matching our unique key and with data to compare year over year. After the initial calculations, we also corrected for a few instances with zeros and where the calculation was below zero or over one, indicating a problem with the data, by dropping the values. We further refined the data correcting for irregularities in naming NCWIT Participant type and Major Program Name. Major Program Name was a unique challenge as there were many variations among the CIP code and program name.
+This design built on Justin and Bret’s exploration and attempts to calculate and display retention rates in a line graph. Bret and Will met on Monday and discussed better ways to calculate retention and alternatives to using a line graph as the graph was muddled and spaghetti-like, making it hard compare the information among schools. After discussing the challenges Justin and Bret were having, Will devised a better way calculate attrition using Total Declared Major and Left Institution data. He also cleaned the data well, making sure to only pull from institutions matching our unique key and with data to compare year over year. After the initial calculations, we also corrected for a few instances with zeros and where the calculation was below zero or over one, indicating a problem with the data, by dropping the values. We further refined the data correcting for irregularities in naming NCWIT Participant type and Major Program Name. Major Program Name was a unique challenge as there were many variations among the CIP code and program name.
 
-<p>After exporting the csv with the cleaned data, we used Tableau to prototype the bubble chart. Here we added the color features and discussed the possibility of further interaction via clicking on each circle to display the data within each major.
+<p>After exporting the csv with the cleaned data, we used Tableau to prototype the bubble chart. Here we added the color features and discussed the possibility of further interaction via clicking on each circle to display the data within each major. With more time we would have encorporated more interation beyond the tooltip, but the zooming in D3 proved to be beyond this project.
 </p>
 
 <h3>Visualization 4 - DataFry: Interactive line graph with sound</h3>
@@ -141,7 +141,7 @@ DataFry is a visualization that uses interactivity to sonify data. For this visu
 [DataFry](https://player.vimeo.com/video/260492997)
 
 <h2>Team Roles: </h2>
-<p>Bret – Assisted Documenting project. Helped organize meetings, work on analyzing data, and designing visualizations.</p>
+<p>Bret – Assisted documenting project. Helped organize meetings, work on analyzing data, and designing visualizations.</p>
 <p>Jen – Worked on analyzing data and designing visualizations. Designed color palette and built physical visualization.</p>
 <p>Jordan – Worked on analyzing data and designing visualizations. Built violin/swarm plot visualization.</p>
 <p>Justin – Worked on analyzing data and designing visualizations. Assisted cleaning data and working with Bokeh and other libraries to assist building visualizations.</p>
