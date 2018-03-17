@@ -128,9 +128,9 @@ If we had more time, we would have tried to implement the visualization in D3 in
 <p><b>Design Process</b></p>
 <p>We built the circuit based off of Jay Silver's Drawdio circuit. The Drawdio circuit is centered around a 555 timer that changes the frequency depending on the resistance provided by the human input. The original Drawdio circuit is attached to a pencil and uses graphite to complete the circuit. We built the circuit onto a breadboard, and experimented with a number of materials for the trace of our line graph such as copper fabric, graphite, and conductive ink. We decided to work with conductive ink because it provided the most variability in sound than the fabric, yet was more durable to work with than the graphite.</p>
 
-![Building the circuit](https://imgur.com/RClP73x)
+![Building the circuit](https://i.imgur.com/RClP73x.jpg)
 
-![Circuit diagram and breadboard](https://imgur.com/a/zh0cK)
+![Circuit diagram and breadboard](https://i.imgur.com/ZUSyZVD.jpg)
 
 
 <p>We also experimented with the use of overlays for DataFry. We used a transparency to put another line graph on top of our existing graph. For our graph, we overlaid the enrollment percentage for engineering over the graph for enrollment percentage for computer science. This allows for a visual and tangible experience of comparing the data.</p>
