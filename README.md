@@ -11,7 +11,7 @@ To begin the process our group worked individually and then met via Skype and af
 
 
 <h2>Visualization Descriptions</h2>
-<h3>Preliminary/Exploratory Visualizations</h3>
+<h3>Vizualization 0 - Preliminary/Exploratory Visualizations</h3>
 <p>The following visualizations shows the average Female GPA by Major (Computer Engineering, Comupter Sciecne, Mechanical Engineering) by year, and college standings </p>
 
 <p>Design Process</p>
@@ -54,7 +54,7 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 
 <h3>Visualization 3 - Violin/Swarm Plots</h3>
 
-# Description
+#### Description and Overview
 This visualization addresses the question: **Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?**
 
 To address this question, we created a visualization showing the distribution, across all of the school and programs, of the percent of female students. This is shown as both a violin plot and an overlying swarmplot. On the swarmplot, each dot is a unique institution/program/year combination. The distribution statistics used to render the violin plot are used on those unique rows as well.
@@ -67,14 +67,14 @@ However, some interesting patterns are evident: In media and design, nearly all 
 
 Jordan took the lead on this visualization, with Jen providing a supporting role by giving feedback and guidance on design decisions.
 
-# How to view
+#### How to view
 You can view this visualization in our dashboard, [or as a standalone graphic here](https://info-4602-5602.github.io/project-2-ncwit-team-13/viz_gender_enrollment/).
 
 Use the buttons at the top to switch between which declaration-group is highlighted: upon enrollment, after the first year, after the second year, or other. (Note, there was an additional category, “university close” -- because this was so small we chose not to include it in the interface.)
 
 Mouse over the “expand distribution” lab next to “Computer Science” or “Engineering” to see a pop-out view of these majors.
 
-# Design Process
+#### Design Process
 The first phase of the design process was selecting a question to guide our inquiry. Our team brainstormed questions and topics after looking at the dataset, and narrowed it down to our favorites. This question was selected because Lecia Barker explicitly called out the fact that students have to declare majors at different times as something that schools were interested in learning about -- does this have an effect on enrollment, retention, and success in the programs?
 
 The next phase was doing some data cleaning and preliminary analysis using Python, pandas and Jupyter notebooks. [You can see the notebook with both data cleaning and visualizations here.](https://github.com/INFO-4602-5602/project-2-ncwit-team-13/blob/master/viz_gender_enrollment/data-analysis/JWB-NCWIT-analysis.ipynb) [Note that it takes a while to load because the plots take time to render.]
@@ -103,15 +103,12 @@ Another major design decision we had to make was how to handle the “overlappin
 
 We also considered making the frame wider, or reducing the number of categories shown. These were also non-ideal options. In the end, we decided to show a coordinated view that displays the full distribution for the large categories, CS and engineering, on a tooltip when you mouse over the title. This of course has its flaws, too -- we’re really curious to hear what you think about this design choice.
 
+If we had more time, we would have tried to implement the visualization in D3 instead of in Seaborn and Javascript. This would have allowed us to add enhanced interactivity, such as a mouseover feature for each dot that shows you the institution code, total enrollment, and other related data. With more time, we also could have explored the time dimension in these relationships.
 
-
-
-</p>
-
-<p>How to run</p>
 
 <h3>Visualization 4 - Interactive line graph with sound</h3>
-#Description
+
+# Description
 <p></p>
 
 <p>Design Process</p>
@@ -126,7 +123,7 @@ We also considered making the frame wider, or reducing the number of categories 
 <h2>Team Roles: </h2>
 <p>Bret – Documented project. Helped organize meeting, work on analyzing data, and designing visualizations.</p>
 <p>Jen – Worked on analyzing data and designing visualizations. Designed color palette and built physical visualization.</p>
-<p>Jordan – Worked on analyzing data and designing visualizations. Built violin plot visualization.</p>
+<p>Jordan – Worked on analyzing data and designing visualizations. Built violin/swarm plot visualization.</p>
 <p>Justin – Worked on analyzing data and designing visualizations. Assisted cleaning data and working with Bokeh and other libraries to assist building visualizations.</p>
 <p>Will -Worked on analyzing data and designing visualizations. Built attrition and GPA visualizations.</p>
 
