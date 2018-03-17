@@ -128,9 +128,9 @@ If we had more time, we would have tried to implement the visualization in D3 in
 <p><b>Design Process</b></p>
 <p>We built the circuit based off of Jay Silver's Drawdio circuit. The Drawdio circuit is centered around a 555 timer that changes the frequency depending on the resistance provided by the human input. The original Drawdio circuit is attached to a pencil and uses graphite to complete the circuit. We built the circuit onto a breadboard, and experimented with a number of materials for the trace of our line graph such as copper fabric, graphite, and conductive ink. We decided to work with conductive ink because it provided the most variability in sound than the fabric, yet was more durable to work with than the graphite.</p>
 
-![Building the circuit](https://imgur.com/a/noul4)
+![Building the circuit](https://imgur.com/RClP73x)
 
-![Circuit diagram and breadboard](https://imgur.com/SQCBqoL)
+![Circuit diagram and breadboard](https://imgur.com/a/zh0cK)
 
 
 <p>We also experimented with the use of overlays for DataFry. We used a transparency to put another line graph on top of our existing graph. For our graph, we overlaid the enrollment percentage for engineering over the graph for enrollment percentage for computer science. This allows for a visual and tangible experience of comparing the data.</p>
@@ -142,7 +142,7 @@ If we had more time, we would have tried to implement the visualization in D3 in
 <p>To run DataFry, put one finger on the button in the lower left corner. Then put another finger on the line graph. As your body completes the circuit, you'll hear the sound of the data.  Trace the line and hear how the sound changes across the graph. </p>
 
 <p>Or just watch the video!</p>
-![DataFry](https://player.vimeo.com/video/260492997)
+[DataFry](https://player.vimeo.com/video/260492997)
 
 <h2>Team Roles: </h2>
 <p>Bret – Documented project. Helped organize meeting, work on analyzing data, and designing visualizations.</p>
