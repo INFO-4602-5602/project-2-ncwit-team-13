@@ -53,8 +53,9 @@ We drew the visualization on a white board, showing the line graph, plots for M 
 <p>How to run</p>
 
 <h3>Visualization 3 - Violin/Swarm Plots</h3>
+
 # Description
-This visualization addresses the question: *Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?*
+This visualization addresses the question: **Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?**
 
 To address this question, we created a visualization showing the distribution, across all of the school and programs, of the percent of female students. This is shown as both a violin plot and an overlying swarmplot. On the swarmplot, each dot is a unique institution/program/year combination. The distribution statistics used to render the violin plot are used on those unique rows as well.
 
@@ -84,7 +85,9 @@ Another visualization decision we had to make was whether to aggregate the data 
 
 Our next design choice was what visualization to make. We knew that we wanted to emphasize the distribution of female enrollment, so we looked at box plots, scatter plots, violin plots and swarmplots. Using [Andrew Sielen’s suite of distribution plots for d3](http://bl.ocks.org/asielen/92929960988a8935d907e39e60ea8417) as a guide, we tried out some of the different possibilities. We also looked at the plots available in [Seaborn](https://seaborn.pydata.org/index.html), a visualization package for Python that handles distribution plots well. We ended up choosing a violin plot with a swarmplot overlay. This allows the user to get an impression/gist of the overall distribution, while also being able to see individual values. We felt this met the overview/detail requirement nicely. We adjusted the violin plot settings so that the total area of each violin is proportional to the number of data points in each category (note: it’s NOT proportional to the number of total students in each category, which also would have been interesting). We chose to “clip” the violin plots at 0 percent and 100 percent, because it was confusing to see them extend into, say, negative numbers, when we know there are no negative values for percent females.
 
-![Violin plots without dots](https://i.imgur.com/H1rNYEK.png)
+Here's an example of an unstyled violin plot made using Seaborn. Note that it has tips that extend beyond 0 and 1, the widths are uniform (that is, the area isn't scaled by number of data points), and it has the default color palette:
+
+![Violin plots without dots](https://i.imgur.com/uqdb503.png)
 
 The next choice was which data to encode in which channels. We knew that we would keep percent females enrolled on the y-axis, but weren’t sure whether to put major or when students must decide on a major on the x-axis. To decide, we made prototype plots of each and circulated them among the team to get feedback.
 
