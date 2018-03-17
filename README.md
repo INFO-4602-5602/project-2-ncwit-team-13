@@ -117,8 +117,7 @@ This design built on Justin and Bret’s exploration and attempts to calculate a
 </p>
 
 <h3>Visualization 4 - DataFry: Interactive line graph with sound</h3>
-#### Description
-<p>DataFry is a visualization that uses interactivity to sonify data. For this visualization, we are using line graphs that show the changes in percentage of female enrollment in particular majors over a set of years, in our case we compared the enrollment percentages for computer science and engineering. The line graph is made using conductive ink, turning the graph into a conductive trace. The circuit for the visualization is completed when the person places their fingers along this trace. As they trace their finger along the path, it changes the resistance value which alters the output of the sound. For example, when the finger is near the beginning of the line graph on the left, the resistance is higher, which yields a lower pitch in our circuit. As the finger moves towards the right, the resistance decreases, producing a higher pitch.</p>
+DataFry is a visualization that uses interactivity to sonify data. For this visualization, we are using line graphs that show the changes in percentage of female enrollment in particular majors over a set of years, in our case we compared the enrollment percentages for computer science and engineering. The line graph is made using conductive ink, turning the graph into a conductive trace. The circuit for the visualization is completed when the person places their fingers along this trace. As they trace their finger along the path, it changes the resistance value which alters the output of the sound. For example, when the finger is near the beginning of the line graph on the left, the resistance is higher, which yields a lower pitch in our circuit. As the finger moves towards the right, the resistance decreases, producing a higher pitch.
 
 
 <p><b>Design Process</b></p>
@@ -138,6 +137,7 @@ This design built on Justin and Bret’s exploration and attempts to calculate a
 <p>To run DataFry, put one finger on the button in the lower left corner. Then put another finger on the line graph. As your body completes the circuit, you'll hear the sound of the data.  Trace the line and hear how the sound changes across the graph. </p>
 
 <p>Or just watch the video!</p>
+
 ![DataFry](https://player.vimeo.com/video/260492997)
 
 <h2>Team Roles: </h2>
