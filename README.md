@@ -138,7 +138,7 @@ DataFry is a visualization that uses interactivity to sonify data. For this visu
 
 <p>Or just watch the video!</p>
 
-![DataFry](https://player.vimeo.com/video/260492997)
+[DataFry](https://player.vimeo.com/video/260492997)
 
 <h2>Team Roles: </h2>
 <p>Bret – Assisted Documenting project. Helped organize meetings, work on analyzing data, and designing visualizations.</p>
