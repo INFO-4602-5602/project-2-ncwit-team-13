@@ -9,14 +9,14 @@
 <h2>Overview: </h2>
 To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub.
 
-## [You can view all of our visualizations on this page.](https://info-4602-5602.github.io/project-2-ncwit-team-13/dashboard.html)
+### [You can view all of our visualizations on this page.](https://info-4602-5602.github.io/project-2-ncwit-team-13/dashboard.html)
 
 
 <h2>Visualization Descriptions</h2>
 <h3>Vizualization 0 - Preliminary/Exploratory Visualizations</h3>
 <p>The following visualizations shows the average Female GPA by Major (Computer Engineering, Comupter Sciecne, Mechanical Engineering) by year, and college standings </p>
 
-<p>Design Process</p>
+<p><b>Design Process</b></p>
 We began by looking over the data and designing questions to answer with the data, as well as questions about the data. After meeting with Lecia from NCWIT, we took her guidance and attempted to generate more questions that we could answer through visualization.
 Because Lecia was focused on retention, we decided to attempt to tackle that problem. Justin and Bret met on Sunday to further analyze the date and begin cleaning the data. We decided to focus on “Extension Service” schools because the data was better. Initial graphs using the raw data built in Tableau also showed that many schools did not provide data before 2007/2008 since that was when the extension services began, and more data was provided by consultants from the program.  The graph shown is one example where the schools did not provide data for years before 2007/2008.
 
@@ -32,29 +32,22 @@ After our initial preprocessing of the data, it was obvious that the data was sp
 
 </p>
 
-<h3>Visualization 1 - Attrition/Institution, Male/F/Tot.</h3>
-<p>This visualization is a bubble chart showing attrition for each major from institutions that have enough data to calculate attrition. Each circle represents a major, with the size of the circles encoding the total number of STUDENTS enrolled in that major. The color scale displays whether the major has higher attrition for males or females, with more x showing higher levels of female attrition and x showing higher levels of male attrition. The user can mouse over to display the male, female, and total attrition for each major. When the circle is clicked the display zooms in on the data for that major, displaying each the specific information for each institution.</p>
+<h3>Visualization 1 - Average GPA vs. Major, by Gender</h3>
+<p>This visualization is a scatterplot with major plotted on the x-axis and GPA on the y-axis. Average GPA is calculated for each instituation per major, and broken down by males and females. Individual points represent either female GPA in purple, male GPA in orange, or the cobined GPA in green for an individual institution. The size of the point represents the number of students enrolled. The user can scroll through the years using a scroll tool to display individual years and potentially see changes over time. Comparison is a bit difficult due to change blindness as well as overlap in the data.</p>
 
-<p>Design Process</p>
-This design built on Justin and Bret’s exploration and attempts to calculate and display retention rates in a line graph. Bret and Will met on Monday and discussed better ways to calculate retention and alternatives to using a line graph as the graph was muddled and spaghetti like, and hard compare the information among schools. After discussing the challenges Justin and Bret were having, Will devised a better way calculate attrition using Total Declared Major and Left Institution data. He also cleaned the data well, making sure to only pull from institutions matching our unique key and with data to compare year over year. After the initial calculations, we also corrected for a few places with zeros and where the calculation was below zero or over one, indicating a problem with the data. We further refined the data correcting for irregularities in naming NCWIT Participant type and Major Program Name. Major Program Name was unique as there were many variations among the CIP code and program name.
+#### How to view
+You can view the visualization in the dashboard. 
 
-After exporting the csv with the cleaned data, we used Tableau to prototype the bubble chart. Here we added the color features and discussed the possibility of further interaction via clicking on each circle to display the data within each major.
-</p>
+Use the sliter at the top to scroll through individual years. The slider also responds to the keyboard arrow keys once clicked.
 
-<p>How to run</p>
+Mouse over each point to display a tooltip showing the record with number of students and average GPA.
 
-<h3>Visualization 2 - Male/Female GPA Over Time</h3>
-<p>This visualization is a simple line chart with GPA plotted on the x-axis and year on the y-axis. GPA is calculated per major. The user can scroll through the years using a scroll tool for the x-axis to show individual years.</p>
+#### Design Process 
+After working on the attrition visualization, we needed to complete one additional visualization as Jen and Jordan were working on 2 as well. We decided to use GPA to have a simpler calculation, and look at a less specific data set since the attrition calculation eliminated around 1500 rows of data. A similar script to the attrition calculation was used to calculate GPA.
 
-<p>Design Process</p>
-After working on the attrition visualization, we needed to complete one additional visualization to have 4 visualizations as Jen and Jordan were working on 2 as well. We decided to use GPA and time to have a simpler calculation and look at a potentially less specific data since the attrition calculation eliminated around 1500 rows of data.
+We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3. We coordinated on color for the graphic.
 
-We drew the visualization on a white board, showing the line graph, plots for M and F GPA over time, and the interaction of scrolling trough the data. Will then looked for examples for building the slider in D3.
-</p>
-
-<p>How to run</p>
-
-<h3>Visualization 3 - Violin/Swarm Plots</h3>
+<h3>Visualization 2 - Violin/Swarm Plots</h3>
 
 #### Description and Overview
 This visualization addresses the question: **Does when a student has to declare a major (upon enrollment, after the first year, after the second year, or some other time) have an effect on how many female students enroll in STEM programs?**
@@ -111,21 +104,22 @@ Throughout this process, Jordan worked on crafting and refining the prototype, f
 
 If we had more time, we would have tried to implement the visualization in D3 instead of in Seaborn and Javascript. This would have allowed us to add enhanced interactivity, such as a mouseover feature for each dot that shows you the institution code, total enrollment, and other related data. With more time, we also could have explored the time dimension in these relationships.
 
+<h3>Visualization 3 - Attrition/Institution, Male/F/Tot.</h3>
+This visualization is a bubble chart showing attrition for each major from institutions that have enough data to calculate attrition. Each circle represents a major, with the size of the circles encoding the total number of students enrolled in that major. The color scale displays whether the major has higher attrition for males or females, with more green showing higher levels of female attrition and more purple showing higher levels of male attrition. The user can mouse over to display the major, number of students, and rows of data for that major.
 
-<<<<<<< HEAD
-<h3>Visualization 4 - Interactive line graph with sound</h3>
+#### How to view
+Mouse over the circles to display the tooltip.
 
-# Description
-<p></p>
-=======
+#### Design Process
+This design built on Justin and Bret’s exploration and attempts to calculate and display retention rates in a line graph. Bret and Will met on Monday and discussed better ways to calculate retention and alternatives to using a line graph as the graph was muddled and spaghetti-like making it hard compare the information among schools. After discussing the challenges Justin and Bret were having, Will devised a better way calculate attrition using Total Declared Major and Left Institution data. He also cleaned the data well, making sure to only pull from institutions matching our unique key and with data to compare year over year. After the initial calculations, we also corrected for a few instances with zeros and where the calculation was below zero or over one, indicating a problem with the data, by dropping the values. We further refined the data correcting for irregularities in naming NCWIT Participant type and Major Program Name. Major Program Name was a unique challenge as there were many variations among the CIP code and program name.
+
+<p>After exporting the csv with the cleaned data, we used Tableau to prototype the bubble chart. Here we added the color features and discussed the possibility of further interaction via clicking on each circle to display the data within each major.
 </p>
 
-<p>How to run</p>
-
 <h3>Visualization 4 - DataFry: Interactive line graph with sound</h3>
-#Description
+#### Description
 <p>DataFry is a visualization that uses interactivity to sonify data. For this visualization, we are using line graphs that show the changes in percentage of female enrollment in particular majors over a set of years, in our case we compared the enrollment percentages for computer science and engineering. The line graph is made using conductive ink, turning the graph into a conductive trace. The circuit for the visualization is completed when the person places their fingers along this trace. As they trace their finger along the path, it changes the resistance value which alters the output of the sound. For example, when the finger is near the beginning of the line graph on the left, the resistance is higher, which yields a lower pitch in our circuit. As the finger moves towards the right, the resistance decreases, producing a higher pitch.</p>
-<<<<<<< HEAD
+
 
 <p><b>Design Process</b></p>
 <p>We built the circuit based off of Jay Silver's Drawdio circuit. The Drawdio circuit is centered around a 555 timer that changes the frequency depending on the resistance provided by the human input. The original Drawdio circuit is attached to a pencil and uses graphite to complete the circuit. We built the circuit onto a breadboard, and experimented with a number of materials for the trace of our line graph such as copper fabric, graphite, and conductive ink. We decided to work with conductive ink because it provided the most variability in sound than the fabric, yet was more durable to work with than the graphite.</p>
@@ -144,23 +138,19 @@ If we had more time, we would have tried to implement the visualization in D3 in
 <p>To run DataFry, put one finger on the button in the lower left corner. Then put another finger on the line graph. As your body completes the circuit, you'll hear the sound of the data.  Trace the line and hear how the sound changes across the graph. </p>
 
 <p>Or just watch the video!</p>
-[DataFry](https://player.vimeo.com/video/260492997)
+![DataFry](https://player.vimeo.com/video/260492997)
 
 <h2>Team Roles: </h2>
-<p>Bret – Documented project. Helped organize meeting, work on analyzing data, and designing visualizations.</p>
+<p>Bret – Assisted Documenting project. Helped organize meetings, work on analyzing data, and designing visualizations.</p>
 <p>Jen – Worked on analyzing data and designing visualizations. Designed color palette and built physical visualization.</p>
 <p>Jordan – Worked on analyzing data and designing visualizations. Built violin/swarm plot visualization.</p>
 <p>Justin – Worked on analyzing data and designing visualizations. Assisted cleaning data and working with Bokeh and other libraries to assist building visualizations.</p>
 <p>Will -Worked on analyzing data and designing visualizations. Built attrition and GPA visualizations.</p>
 
-
-
 <h2>Above and Beyond Included:</h2>
-The above requirements are the minimum for a passing grade on this project. Some ideas to improve your project include:<ul>
+<ul>
 <li>Dashboarding</li>
 <li>Added Visualizations: 3+1</li>
-<li>Dynamic Queries: Zoom in on major in visualization 1.</li>
-<li>Missing Data: We filtered data that did not include all the parameters, threw out zero values, and filtered outliers that did not make sense due to bad data.</li>
-<li>Coordinated Views: ??  Have two or more visualizations that interact with one another as you move through the data.</li>
+<li>Missing Data: We filtered data that did not include all the parameters, threw out zero values, and filtered outliers that did not make sense.</li>
 <li>Overview+Detail: Highlight declaration year in visualization 3, greying out background information.</li>
-<li>Style: Color palette and font are the same.</li></ul>
+<li>Style: Color palette and font are the same</li></ul>
