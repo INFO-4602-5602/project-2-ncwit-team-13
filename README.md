@@ -75,6 +75,7 @@ Use the buttons at the top to switch between which declaration-group is highligh
 Mouse over the “expand distribution” lab next to “Computer Science” or “Engineering” to see a pop-out view of these majors.
 
 #### Design Process
+
 The first phase of the design process was selecting a question to guide our inquiry. Our team brainstormed questions and topics after looking at the dataset, and narrowed it down to our favorites. This question was selected because Lecia Barker explicitly called out the fact that students have to declare majors at different times as something that schools were interested in learning about -- does this have an effect on enrollment, retention, and success in the programs?
 
 The next phase was doing some data cleaning and preliminary analysis using Python, pandas and Jupyter notebooks. [You can see the notebook with both data cleaning and visualizations here.](https://github.com/INFO-4602-5602/project-2-ncwit-team-13/blob/master/viz_gender_enrollment/data-analysis/JWB-NCWIT-analysis.ipynb) [Note that it takes a while to load because the plots take time to render.]
@@ -103,21 +104,41 @@ Another major design decision we had to make was how to handle the “overlappin
 
 We also considered making the frame wider, or reducing the number of categories shown. These were also non-ideal options. In the end, we decided to show a coordinated view that displays the full distribution for the large categories, CS and engineering, on a tooltip when you mouse over the title. This of course has its flaws, too -- we’re really curious to hear what you think about this design choice.
 
+Throughout this process, Jordan worked on crafting and refining the prototype, frequently sending Jen in-progress images over slack with design decision questions. While most of our interaction was online, via Slack, we also met in person to hash out some decisions. Here's the whiteboard from one of our in-person meeting:
+![White board listing some design decisions](https://i.imgur.com/luYv0VN.jpg)
+
 If we had more time, we would have tried to implement the visualization in D3 instead of in Seaborn and Javascript. This would have allowed us to add enhanced interactivity, such as a mouseover feature for each dot that shows you the institution code, total enrollment, and other related data. With more time, we also could have explored the time dimension in these relationships.
 
 
+<<<<<<< HEAD
 <h3>Visualization 4 - Interactive line graph with sound</h3>
 
 # Description
 <p></p>
-
-<p>Design Process</p>
-
-
+=======
 </p>
 
 <p>How to run</p>
 
+<h3>Visualization 4 - DataFry: Interactive line graph with sound</h3>
+#Description
+<p>DataFry is a visualization that uses interactivity to sonify data. For this visualization, we are using line graphs that show the changes in percentage of female enrollment in particular majors over a set of years, in our case we compared the enrollment percentages for computer science and engineering. The line graph is made using conductive ink, turning the graph into a conductive trace. The circuit for the visualization is completed when the person places their fingers along this trace. As they trace their finger along the path, it changes the resistance value which alters the output of the sound. For example, when the finger is near the beginning of the line graph on the left, the resistance is higher, which yields a lower pitch in our circuit. As the finger moves towards the right, the resistance decreases, producing a higher pitch.</p>
+>>>>>>> origin/master
+
+<p><b>Design Process</b></p>
+<p>We built the circuit based off of Jay Silver's Drawdio circuit. The Drawdio circuit is centered around a 555 timer that changes the frequency depending on the resistance provided by the human input. The original Drawdio circuit is attached to a pencil and uses graphite to complete the circuit. We built the circuit onto a breadboard, and experimented with a number of materials for the trace of our line graph such as copper fabric, graphite, and conductive ink. We decided to work with conductive ink because it provided the most variability in sound than the fabric, yet was more durable to work with than the graphite.</p>
+
+<p>We also experimented with the use of overlays for DataFry. We used a transparency to put another line graph on top of our existing graph. For our graph, we overlaid the enrollment percentage for engineering over the graph for enrollment percentage for computer science. This allows for a visual and tangible experience of comparing the data.</p>
+
+<p>Although the current  version of DataFry is a working proof of concept, there are changes that could made going forward. In future iterations, we hope to incorporate a microcontroller, such as an Arduino. Using a microcontroller could allow us to sense with more accuracy where the person is touching the graph. This could also open up potentials in connecting the tangible graph with a digital interface so that additional information could pop up on a nearby screen as the person is exploring the graph. We also see the possibility for additional iterations being for the way the graph is made. While the conductive ink made for an effective trace for our prototype, we had difficulty in controlling the flow in the ink. Future work can include working with stencils or diluting the ink so that is easier to apply to a surface.</p>
+
+<p><b>How to run</b></p>
+
+<p>To run DataFry, put one finger on the button in the lower left corner. Then put another finger on the line graph. As your body completes the circuit, you'll hear the sound of the data.  Trace the line and hear how the sound changes across the graph. </p>
+
+<p>Or just watch the video!</p>
+<iframe src="https://player.vimeo.com/video/260492997" width="640" height="352" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/260492997">datafry</a> from <a href="https://vimeo.com/user966690"></a> on <a href="https://vimeo.com">Vimeo</a></p>
 
 
 <h2>Team Roles: </h2>
