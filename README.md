@@ -9,6 +9,8 @@
 <h2>Overview: </h2>
 To begin the process our group worked individually and then met via Skype and after class to brainstorm initial ideas. After speaking with Lecia, we worked in groups of 2 (Justin/Bret, Will/Bret, and Jordan/Jen) to design 4 visualizations. Throughout the process we met as a group after class, and in groups as needed. We also collaborated over Slack and GitHub.
 
+## [You can view all of our visualizations on this page.](https://info-4602-5602.github.io/project-2-ncwit-team-13/dashboard.html)
+
 
 <h2>Visualization Descriptions</h2>
 <h3>Vizualization 0 - Preliminary/Exploratory Visualizations</h3>
